@@ -3,7 +3,7 @@
 namespace App\Services\Supermarket\Features\Company;
 
 use App\Domains\Company\Jobs\SaveCompanyJob;
-use App\Domains\Supermarket\Requests\Company\AddCompany;
+use App\Domains\Company\Requests\AddCompany;
 use Illuminate\Support\Str;
 use Lucid\Units\Feature;
 use Ramsey\Uuid\Uuid;

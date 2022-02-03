@@ -3,7 +3,7 @@
 namespace App\Services\Supermarket\Features\Company;
 
 use App\Domains\Company\Jobs\DeleteCompanyJob;
-use App\Domains\Supermarket\Requests\Company\DeleteCompany;
+use App\Domains\Company\Requests\DeleteCompany;
 use Illuminate\Http\Request;
 use Lucid\Units\Feature;
 

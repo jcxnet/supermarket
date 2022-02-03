@@ -3,7 +3,7 @@
 namespace App\Services\Supermarket\Features\Company;
 
 use App\Domains\Company\Jobs\UpdateCompanyJob;
-use App\Domains\Supermarket\Requests\Company\UpdateCompany;
+use App\Domains\Company\Requests\UpdateCompany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Lucid\Units\Feature;

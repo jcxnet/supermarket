@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domains\Supermarket\Requests\Company;
+namespace App\Domains\Company\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetCompany extends FormRequest
+class AddCompany extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class GetCompany extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['required', 'string','uuid'],
+            'name' => ['required', 'unique:companies','max:255'],
+            'cif' => ['required', 'unique:companies','min:9', 'max:9'],
         ];
     }
 }
