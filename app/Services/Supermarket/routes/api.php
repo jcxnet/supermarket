@@ -14,6 +14,7 @@
 // Prefix: /api/supermarket
 use App\Services\Supermarket\Http\Controllers\CategoryController;
 use App\Services\Supermarket\Http\Controllers\CompanyController;
+use App\Services\Supermarket\Http\Controllers\ContactController;
 use App\Services\Supermarket\Http\Controllers\StoreController;
 
 Route::group(['prefix' => 'supermarket'], function() {
@@ -23,24 +24,33 @@ Route::group(['prefix' => 'supermarket'], function() {
         return response()->json(['path' => '/api/supermarket']);
     });
 
-
+    //categories
     Route::post('/categories',[CategoryController::class, 'add']);
     Route::get('/categories',[CategoryController::class, 'all']);
     Route::get('/categories/{id}',[CategoryController::class, 'get']);
     Route::put('/categories/{id}',[CategoryController::class, 'update']);
     Route::delete('/categories/{id}',[CategoryController::class, 'delete']);
 
+    // companies
     Route::post('/companies',[CompanyController::class, 'add']);
     Route::get('/companies',[CompanyController::class, 'all']);
     Route::get('/companies/{id}',[CompanyController::class, 'get']);
     Route::put('/companies/{id}',[CompanyController::class, 'update']);
     Route::delete('/companies/{id}',[CompanyController::class, 'delete']);
 
+    // stores
     Route::post('/stores',[StoreController::class, 'add']);
     Route::get('/stores',[StoreController::class, 'all']);
     Route::get('/stores/{id}',[StoreController::class, 'get']);
     Route::put('/stores/{id}',[StoreController::class, 'update']);
     Route::delete('/stores/{id}',[StoreController::class, 'delete']);
+
+    //contacts
+    Route::post('/contacts',[ContactController::class, 'add']);
+    Route::get('/contacts',[ContactController::class, 'all']);
+    Route::get('/contacts/{id}',[ContactController::class, 'get']);
+    Route::put('/contacts/{id}',[ContactController::class, 'update']);
+    Route::delete('/contacts/{id}',[ContactController::class, 'delete']);
 
 
     /*Route::middleware('auth:api')->get('/user', function (Request $request) {
