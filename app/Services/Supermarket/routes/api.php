@@ -23,7 +23,8 @@ Route::group(['prefix' => 'supermarket'], function() {
 
 
     Route::post('/categories',[CategoryController::class, 'add']);
-    Route::get('/categories/{id?}',[CategoryController::class, 'get']);
+    Route::get('/categories',[CategoryController::class, 'all']);
+    Route::get('/categories/{id}',[CategoryController::class, 'get']);
     Route::put('/categories/{id}',[CategoryController::class, 'update']);
     Route::delete('/categories/{id}',[CategoryController::class, 'delete']);
 

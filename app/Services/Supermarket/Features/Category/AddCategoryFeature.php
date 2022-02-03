@@ -15,7 +15,7 @@ class AddCategoryFeature extends Feature
     {
         $data = $request->validated();
 
-        $this->run(
+        $category = $this->run(
             SaveCategoryJob::class, [
                 'id' => Uuid::uuid4(),
                 'name' => $data['name'],
@@ -23,6 +23,6 @@ class AddCategoryFeature extends Feature
                 'description' => $data['description'] ?? null
         ]);
 
-        return response()->json([]);
+        return response()->json(['data' => $category]);
     }
 }

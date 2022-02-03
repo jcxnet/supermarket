@@ -2,11 +2,10 @@
 
 namespace App\Domains\Category\Jobs;
 
-use App\Data\Models\Category;
 use App\Data\Repository\CategoryRepositoryInterface;
 use Lucid\Units\Job;
 
-class GetCategoryJob extends Job
+class DeleteCategoryJob extends Job
 {
     /**
      * Create a new job instance.
@@ -21,10 +20,10 @@ class GetCategoryJob extends Job
     /**
      * Execute the job.
      *
-     * @return Category
+     * @return bool
      */
-    public function handle(): Category
+    public function handle(): bool
     {
-       return $this->repository->find($this->id);
+        return $this->repository->delete($this->id) > 0;
     }
 }

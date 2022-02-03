@@ -4,9 +4,11 @@ namespace App\Domains\Category\Jobs;
 
 use App\Data\Models\Category;
 use App\Data\Repository\CategoryRepositoryInterface;
+use App\Domains\Category\Exceptions\CategoryNotFound;
+use App\Domains\Category\Exceptions\CategoryUpdateFail;
 use Lucid\Units\Job;
 
-class SaveCategoryJob extends Job
+class UpdateCategoryJob extends Job
 {
     /**
      * Create a new job instance.
@@ -22,20 +24,22 @@ class SaveCategoryJob extends Job
     )
     {}
 
-    /**
-     * Execute the job.
-     *
-     * @return Category
-     */
+
     public function handle(): Category
     {
-        $attributes = [
-            'id' => $this->id,
+        if (!$category = $this->repository->find($this->id)) {
+            throw new CategoryNotFound();
+        }
+
+        $data = [
             'name' => $this->name,
             'slug' => $this->slug,
             'description' => $this->description,
         ];
 
-        return $this->repository->create($attributes) ;
+        $this->repository->update($this->id, $data);
+        $category->refresh();
+
+        return $category;
     }
 }
