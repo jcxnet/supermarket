@@ -2,11 +2,11 @@
 
 namespace App\Services\Supermarket\Http\Controllers;
 
-use App\Services\Supermarket\Features\Company\AddCompanyFeature;
-use App\Services\Supermarket\Features\Company\DeleteCompanyFeature;
-use App\Services\Supermarket\Features\Company\GetCompaniesFeature;
-use App\Services\Supermarket\Features\Company\GetCompanyFeature;
-use App\Services\Supermarket\Features\Company\UpdateCompanyFeature;
+use App\Domains\Company\Features\AddCompanyFeature;
+use App\Domains\Company\Features\DeleteCompanyFeature;
+use App\Domains\Company\Features\GetCompaniesFeature;
+use App\Domains\Company\Features\GetCompanyFeature;
+use App\Domains\Company\Features\UpdateCompanyFeature;
 use Lucid\Units\Controller;
 
 class CompanyController extends Controller

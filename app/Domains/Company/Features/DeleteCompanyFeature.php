@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Services\Supermarket\Features\Category;
+namespace App\Domains\Company\Features;
 
-use App\Domains\Category\Jobs\DeleteCategoryJob;
-use App\Domains\Category\Requests\DeleteCategory;
+use App\Domains\Company\Jobs\DeleteCompanyJob;
+use App\Domains\Company\Requests\DeleteCompany;
 use Illuminate\Http\Request;
 use Lucid\Units\Feature;
 
-class DeleteCategoryFeature extends Feature
+class DeleteCompanyFeature extends Feature
 {
     public function __construct(private string $id, Request $request)
     {
         $request->request->add(['id' => $this->id]);
     }
 
-    public function handle(DeleteCategory $request)
+    public function handle(DeleteCompany $request)
     {
         $data = $request->validated();
 
         $deleted = $this->run(
-            DeleteCategoryJob::class,[
+            DeleteCompanyJob::class,[
             'id' => $data['id']
         ]);
 

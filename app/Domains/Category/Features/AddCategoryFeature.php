@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Supermarket\Features\Category;
+namespace App\Domains\Category\Features;
 
 use App\Domains\Category\Jobs\SaveCategoryJob;
 use App\Domains\Category\Requests\AddCategory;

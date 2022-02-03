@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\Supermarket\Features\Company;
+namespace App\Domains\Company\Features;
 
 use App\Domains\Company\Jobs\GetCompaniesJob;
 use Lucid\Units\Feature;

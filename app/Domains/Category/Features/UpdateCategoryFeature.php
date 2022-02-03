@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Services\Supermarket\Features\Category;
+namespace App\Domains\Category\Features;
 
 use App\Domains\Category\Jobs\UpdateCategoryJob;
 use App\Domains\Category\Requests\UpdateCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Lucid\Units\Feature;
+use function response;
 
 class UpdateCategoryFeature extends Feature
 {
