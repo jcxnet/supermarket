@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Services\Supermarket\Features\Category;
+namespace App\Domains\Category\Features;
 
 use App\Domains\Category\Jobs\GetCategoryJob;
 use App\Domains\Category\Requests\GetCategory;
 use Illuminate\Http\Request;
 use Lucid\Units\Feature;
+use function response;
 
 class GetCategoryFeature extends Feature
 {

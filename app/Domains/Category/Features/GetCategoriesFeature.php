@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Services\Supermarket\Features\Category;
+namespace App\Domains\Category\Features;
 
 use App\Domains\Category\Jobs\GetCategoriesJob;
 use Lucid\Units\Feature;
+use function response;
 
 class GetCategoriesFeature extends Feature
 {

@@ -2,11 +2,11 @@
 
 namespace App\Services\Supermarket\Http\Controllers;
 
-use App\Services\Supermarket\Features\Category\AddCategoryFeature;
-use App\Services\Supermarket\Features\Category\DeleteCategoryFeature;
-use App\Services\Supermarket\Features\Category\GetCategoriesFeature;
-use App\Services\Supermarket\Features\Category\GetCategoryFeature;
-use App\Services\Supermarket\Features\Category\UpdateCategoryFeature;
+use App\Domains\Category\Features\AddCategoryFeature;
+use App\Domains\Category\Features\DeleteCategoryFeature;
+use App\Domains\Category\Features\GetCategoriesFeature;
+use App\Domains\Category\Features\GetCategoryFeature;
+use App\Domains\Category\Features\UpdateCategoryFeature;
 use Lucid\Units\Controller;
 
 class CategoryController extends Controller
