@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Data\Repository;
 
 use App\Data\Models\Category;
-use Illuminate\Database\Eloquent\ModelNotFoundException;
+use App\Domains\Category\Exceptions\CategoryNotFound;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
@@ -20,7 +20,7 @@ class CategoryRepository implements CategoryRepositoryInterface
         $this->model = $category;
     }
 
-    public function all(): array
+    public function all()
     {
         return $this->model->all();
     }
@@ -45,7 +45,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function find(string $id)
     {
         if (null == $category = $this->model->find($id)) {
-            throw new ModelNotFoundException("Category not found");
+            throw new CategoryNotFound();
         }
 
         return $category;

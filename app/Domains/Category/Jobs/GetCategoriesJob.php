@@ -2,6 +2,7 @@
 
 namespace App\Domains\Category\Jobs;
 
+use App\Data\Repository\CategoryRepositoryInterface;
 use Lucid\Units\Job;
 
 class GetCategoriesJob extends Job
@@ -11,7 +12,7 @@ class GetCategoriesJob extends Job
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(private CategoryRepositoryInterface $repository)
     {
         //
     }
@@ -19,10 +20,12 @@ class GetCategoriesJob extends Job
     /**
      * Execute the job.
      *
-     * @return void
+     * @return array
      */
-    public function handle()
+    public function handle(): array
     {
-        //
+        $categories = $this->repository->all();
+
+        return $categories->sortBy('name')->values()->all();
     }
 }

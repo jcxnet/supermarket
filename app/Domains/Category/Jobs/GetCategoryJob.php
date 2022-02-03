@@ -2,6 +2,8 @@
 
 namespace App\Domains\Category\Jobs;
 
+use App\Data\Models\Category;
+use App\Data\Repository\CategoryRepositoryInterface;
 use Lucid\Units\Job;
 
 class GetCategoryJob extends Job
@@ -11,18 +13,18 @@ class GetCategoryJob extends Job
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
-    }
+    public function __construct(
+        private string $id,
+        private CategoryRepositoryInterface $repository
+    ){}
 
     /**
      * Execute the job.
      *
-     * @return void
+     * @return Category
      */
-    public function handle()
+    public function handle(): Category
     {
-        //
+       return $this->repository->find($this->id);
     }
 }
