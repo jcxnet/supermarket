@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace App\Data\Repository;
 
-use App\Data\Models\Company;
-use App\Domains\Company\Exceptions\CompanyNotFound;
+use App\Data\Models\Store;
+use App\Domains\Store\Exceptions\StoreNotFound;
 
-class CompanyRepository implements CompanyRepositoryInterface
+class StoreRepository implements StoreRepositoryInterface
 {
 
     protected $model;
 
     /**
-     * @param Company $company
+     * @param Store $store
      */
-    public function __construct(Company $company)
+    public function __construct(Store $store)
     {
-        $this->model = $company;
+        $this->model = $store;
     }
 
     public function all()
@@ -44,10 +44,10 @@ class CompanyRepository implements CompanyRepositoryInterface
 
     public function find(string $id)
     {
-        if (null == $company = $this->model->find($id)) {
-            throw new CompanyNotFound();
+        if (null == $store = $this->model->find($id)) {
+            throw new StoreNotFound();
         }
 
-        return $company;
+        return $store;
     }
 }

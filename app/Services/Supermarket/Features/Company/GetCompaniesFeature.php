@@ -4,7 +4,6 @@ namespace App\Services\Supermarket\Features\Company;
 
 use App\Domains\Company\Jobs\GetCompaniesJob;
 use Lucid\Units\Feature;
-use function response;
 
 class GetCompaniesFeature extends Feature
 {
