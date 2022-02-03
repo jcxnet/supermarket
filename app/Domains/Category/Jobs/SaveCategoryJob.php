@@ -3,6 +3,7 @@
 namespace App\Domains\Category\Jobs;
 
 use App\Data\Models\Category;
+use App\Data\Repository\CategoryRepositoryInterface;
 use Lucid\Units\Job;
 
 class SaveCategoryJob extends Job
@@ -16,7 +17,8 @@ class SaveCategoryJob extends Job
         private string $id,
         private string $name,
         private string $slug,
-        private ?string $description
+        private ?string $description,
+        private CategoryRepositoryInterface $repository
     )
     {}
 
@@ -34,6 +36,6 @@ class SaveCategoryJob extends Job
             'description' => $this->description,
         ];
 
-        return tap(new Category($attributes))->save();
+        return $this->repository->create($attributes) ;
     }
 }
