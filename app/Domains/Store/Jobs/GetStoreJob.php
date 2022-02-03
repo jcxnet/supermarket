@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Domains\Company\Jobs;
+namespace App\Domains\Store\Jobs;
 
-use App\Data\Models\Company;
-use App\Data\Repository\CompanyRepositoryInterface;
+use App\Data\Models\Store;
+use App\Data\Repository\StoreRepositoryInterface;
 use Lucid\Units\Job;
 
-class GetCompanyJob extends Job
+class GetStoreJob extends Job
 {
     /**
      * Create a new job instance.
@@ -15,15 +15,15 @@ class GetCompanyJob extends Job
      */
     public function __construct(
         private string $id,
-        private CompanyRepositoryInterface $repository
+        private StoreRepositoryInterface $repository
     ){}
 
     /**
      * Execute the job.
      *
-     * @return Company
+     * @return void
      */
-    public function handle(): Company
+    public function handle(): Store
     {
         return $this->repository->find($this->id);
     }

@@ -34,7 +34,7 @@ class UpdateCategoryJob extends Job
         $data = [
             'name' => $this->name,
             'slug' => $this->slug,
-            'description' => $this->description,
+            'description' => $this->description ?? $category->description,
         ];
 
         $this->repository->update($this->id, $data);
