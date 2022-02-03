@@ -3,7 +3,7 @@
 namespace App\Services\Supermarket\Features\Category;
 
 use App\Domains\Category\Jobs\GetCategoryJob;
-use App\Domains\Supermarket\Requests\Category\GetCategory;
+use App\Domains\Category\Requests\GetCategory;
 use Illuminate\Http\Request;
 use Lucid\Units\Feature;
 

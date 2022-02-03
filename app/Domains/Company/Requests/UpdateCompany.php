@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domains\Supermarket\Requests\Company;
+namespace App\Domains\Company\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DeleteCompany extends FormRequest
+class UpdateCompany extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +25,8 @@ class DeleteCompany extends FormRequest
     {
         return [
             'id' => ['required', 'string','uuid'],
+            'name' => ['required', 'unique:companies,name,'.$this->id,'max:255'],
+            'cif' => ['required', 'unique:companies,cif,'.$this->id,'min:9', 'max:9'],
         ];
     }
 }

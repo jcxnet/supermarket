@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domains\Supermarket\Requests\Category;
+namespace App\Domains\Category\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class GetCategory extends FormRequest
+class AddCategory extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class GetCategory extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['required', 'string','uuid'],
+            'name' => ['required', 'unique:categories','max:255'],
+            'description' => ['nullable', 'min:3', 'max:255'],
         ];
     }
+
 }

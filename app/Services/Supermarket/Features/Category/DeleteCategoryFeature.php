@@ -3,7 +3,7 @@
 namespace App\Services\Supermarket\Features\Category;
 
 use App\Domains\Category\Jobs\DeleteCategoryJob;
-use App\Domains\Supermarket\Requests\Category\DeleteCategory;
+use App\Domains\Category\Requests\DeleteCategory;
 use Illuminate\Http\Request;
 use Lucid\Units\Feature;
 

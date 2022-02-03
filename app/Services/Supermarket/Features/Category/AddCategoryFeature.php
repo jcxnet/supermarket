@@ -3,7 +3,7 @@
 namespace App\Services\Supermarket\Features\Category;
 
 use App\Domains\Category\Jobs\SaveCategoryJob;
-use App\Domains\Supermarket\Requests\Category\AddCategory;
+use App\Domains\Category\Requests\AddCategory;
 use Illuminate\Support\Str;
 use Lucid\Units\Feature;
 use Ramsey\Uuid\Uuid;
