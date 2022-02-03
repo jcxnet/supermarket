@@ -3,6 +3,7 @@
 namespace App\Services\Supermarket\Http\Controllers;
 
 use App\Services\Supermarket\Features\Category\AddCategoryFeature;
+use App\Services\Supermarket\Features\Category\DeleteCategoryFeature;
 use App\Services\Supermarket\Features\Category\GetCategoriesFeature;
 use App\Services\Supermarket\Features\Category\GetCategoryFeature;
 use App\Services\Supermarket\Features\Category\UpdateCategoryFeature;
@@ -28,5 +29,10 @@ class CategoryController extends Controller
     public function update(string $id)
     {
         $this->serve(UpdateCategoryFeature::class, ['id' => $id]);
+    }
+
+    public function delete(string $id)
+    {
+        $this->serve(DeleteCategoryFeature::class, ['id' => $id]);
     }
 }
