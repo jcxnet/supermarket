@@ -22,6 +22,7 @@ class GetContactFeature extends Feature
             GetContactJob::class,[
             'id' => $data['id']
         ]);
+        $contact->company = $contact->company()->get();
 
         return response()->json(['data' => $contact]);
     }

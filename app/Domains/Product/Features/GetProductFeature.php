@@ -23,6 +23,11 @@ class GetProductFeature extends Feature
             'id' => $data['id']
         ]);
 
+        $product->categories = $product->categories()->orderBy('name')->get();
+        $product->companies = $product->companies()->orderBy('name')->get();
+        $product->stores = $product->stores()->orderBy('name')->get();
+        $product->orders = $product->orders()->get();
+
         return response()->json(['data' => $product]);
     }
 }

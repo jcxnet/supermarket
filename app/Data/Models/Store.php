@@ -13,4 +13,21 @@ class Store extends Model
     public $incrementing = false;
 
     protected $fillable = ['id','name', 'address', 'url'];
+
+    public function products()
+    {
+        return $this->hasManyThrough(
+            'App\Data\Models\Product',
+            'App\Data\Models\StoreProduct',
+            'store_id',
+            'id',
+            'id',
+            'product_id'
+        );
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

@@ -13,4 +13,21 @@ class Company extends Model
     public $incrementing = false;
 
     protected $fillable = ['id','name', 'cif'];
+
+    public function contacts()
+    {
+        return $this->hasMany(Contact::class);
+    }
+
+    public function products()
+    {
+        return $this->hasManyThrough(
+            'App\Data\Models\Product',
+            'App\Data\Models\CompanyProduct',
+            'company_id',
+            'id',
+            'id',
+            'product_id'
+        );
+    }
 }

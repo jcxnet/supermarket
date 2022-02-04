@@ -18,6 +18,7 @@ use App\Services\Supermarket\Http\Controllers\ContactController;
 use App\Services\Supermarket\Http\Controllers\CustomerController;
 use App\Services\Supermarket\Http\Controllers\OrderController;
 use App\Services\Supermarket\Http\Controllers\ProductController;
+use App\Services\Supermarket\Http\Controllers\ReportController;
 use App\Services\Supermarket\Http\Controllers\StoreController;
 
 Route::group(['prefix' => 'supermarket'], function() {
@@ -76,6 +77,14 @@ Route::group(['prefix' => 'supermarket'], function() {
     Route::put('/orders/{id}',[OrderController::class, 'update']);
     Route::delete('/orders/{id}',[OrderController::class, 'delete']);
 
+    //orders store
+    Route::get('/reports/orders/stores',[ReportController::class, 'storesOrders']);
+    Route::get('/reports/orders/stores/{id}',[ReportController::class, 'storeOrders']);
+    Route::get('/reports/companies/{id}/products',[ReportController::class, 'companyProducts']);
+    Route::get('/reports/products/stores',[ReportController::class, 'productsStores']);
+    Route::get('/reports/products/stores/{id}',[ReportController::class, 'productsStore']);
+    Route::get('/reports/stores/sales',[ReportController::class, 'storesSells']);
+    Route::get('/reports/customers/buys',[ReportController::class, 'customersBuys']);
 
     /*Route::middleware('auth:api')->get('/user', function (Request $request) {
         return $request->user();

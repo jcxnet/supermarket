@@ -13,4 +13,9 @@ class Contact extends Model
     public $incrementing = false;
 
     protected $fillable = ['id','name', 'email', 'phone', 'position'];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }

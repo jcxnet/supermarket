@@ -23,6 +23,14 @@ class GetOrderFeature extends Feature
             'id' => $data['id']
         ]);
 
+        $order->customer = $order->customer()->get();
+        $order->store = $order->store()->get();
+        $products = $order->products()->get();
+        foreach ($products as $product){
+            $product->product = $product->product()->get();
+        }
+        $order->products = $products;
+
         return response()->json(['data' => $order]);
     }
 }
