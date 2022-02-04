@@ -19,7 +19,10 @@ class CreateContactsTable extends Migration
             $table->string('email', 255)->nullable(false);
             $table->string('phone', 255)->nullable(true);
             $table->string('position', 255)->nullable(true);
+            $table->uuid('company_id');
             $table->timestamps();
+
+            $table->foreign('company_id')->references('id')->on('companies')->onDelete('cascade');
         });
     }
 

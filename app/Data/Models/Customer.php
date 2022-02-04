@@ -13,4 +13,9 @@ class Customer extends Model
     public $incrementing = false;
 
     protected $fillable = ['id','name', 'email'];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
 }

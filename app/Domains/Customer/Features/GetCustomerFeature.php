@@ -18,11 +18,17 @@ class GetCustomerFeature extends Feature
     {
         $data = $request->validated();
 
-        $contact = $this->run(
+        $customer = $this->run(
             GetCustomerJob::class,[
             'id' => $data['id']
         ]);
+        $orders = $customer->orders()->orderByDesc('created_at')->get();
+        foreach ($orders as $order){
+            $order->store = $order->store()->get();
+        }
+        
+        $customer->orders = $orders;
 
-        return response()->json(['data' => $contact]);
+        return response()->json(['data' => $customer]);
     }
 }

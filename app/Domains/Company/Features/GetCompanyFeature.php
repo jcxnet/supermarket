@@ -19,11 +19,13 @@ class GetCompanyFeature extends Feature
     {
         $data = $request->validated();
 
-        $category = $this->run(
+        $company = $this->run(
             GetCompanyJob::class,[
             'id' => $data['id']
         ]);
+        $company->contacts = $company->contacts()->orderBy('name')->get();
+        $company->products = $company->products()->orderBy('name')->get();
 
-        return response()->json(['data' => $category]);
+        return response()->json(['data' => $company]);
     }
 }

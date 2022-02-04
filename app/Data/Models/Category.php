@@ -13,4 +13,16 @@ class Category extends Model
     public $incrementing = false;
 
     protected $fillable = ['id','name', 'slug', 'description'];
+
+    public function products()
+    {
+        return $this->hasManyThrough(
+            'App\Data\Models\Product',
+            'App\Data\Models\CategoryProduct',
+            'category_id',
+            'id',
+            'id',
+            'product_id'
+        );
+    }
 }

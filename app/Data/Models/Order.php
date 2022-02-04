@@ -13,4 +13,19 @@ class Order extends Model
     public $incrementing = false;
 
     protected $fillable = ['id','total'];
+
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class);
+    }
+
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(OrderProduct::class);
+    }
 }

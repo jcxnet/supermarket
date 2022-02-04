@@ -10,6 +10,9 @@ class GetContactsFeature extends Feature
     public function handle()
     {
         $contacts = $this->run(GetContactsJob::class);
+        foreach ($contacts as $contact){
+            $contact->company = $contact->company()->get();
+        }
 
         return response()->json(['data' => $contacts]);
     }

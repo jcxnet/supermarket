@@ -25,6 +25,8 @@ class GetCategoryFeature extends Feature
                 'id' => $data['id']
             ]);
 
+        $category->products = $category->products()->orderBy('name')->get();
+
         return response()->json(['data' => $category]);
     }
 }
