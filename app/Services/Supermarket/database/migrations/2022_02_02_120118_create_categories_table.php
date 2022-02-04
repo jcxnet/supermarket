@@ -13,7 +13,6 @@ class CreateCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('categories');
         Schema::create('categories', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name', 255)->nullable(false);

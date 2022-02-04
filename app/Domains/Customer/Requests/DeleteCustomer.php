@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domains\Contact\Requests;
+namespace App\Domains\Customer\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateContact extends FormRequest
+class DeleteCustomer extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,10 +25,6 @@ class UpdateContact extends FormRequest
     {
         return [
             'id' => ['required', 'string','uuid'],
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'email','unique:contacts,email,'.$this->id,'max:255'],
-            'phone' => ['nullable', 'max:255'],
-            'position' => ['nullable', 'max:255'],
         ];
     }
 }

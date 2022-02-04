@@ -4,20 +4,21 @@ declare(strict_types=1);
 
 namespace App\Data\Repository;
 
-use App\Data\Models\Contact;
-use App\Domains\Contact\Exceptions\ContactNotFound;
+use App\Data\Models\Customer;
+use App\Domains\Customer\Exceptions\CustomerNotFound;
+use App\Domains\Store\Exceptions\StoreNotFound;
 
-class ContactRepository implements ContactRepositoryInterface
+class CustomerRepository implements CustomerRepositoryInterface
 {
 
     protected $model;
 
     /**
-     * @param Contact $contact
+     * @param Customer $customer
      */
-    public function __construct(Contact $contact)
+    public function __construct(Customer $customer)
     {
-        $this->model = $contact;
+        $this->model = $customer;
     }
 
     public function all()
@@ -44,10 +45,10 @@ class ContactRepository implements ContactRepositoryInterface
 
     public function find(string $id)
     {
-        if (null == $contact = $this->model->find($id)) {
-            throw new ContactNotFound();
+        if (null == $customer = $this->model->find($id)) {
+            throw new CustomerNotFound();
         }
 
-        return $contact;
+        return $customer;
     }
 }
