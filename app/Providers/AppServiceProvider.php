@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Data\Repository\CategoryRepositoryInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,6 +16,30 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             'App\Data\Repository\CategoryRepositoryInterface',
             'App\Data\Repository\CategoryRepository'
+        );
+        $this->app->bind(
+            'App\Data\Repository\CompanyRepositoryInterface',
+            'App\Data\Repository\CompanyRepository'
+        );
+        $this->app->bind(
+            'App\Data\Repository\StoreRepositoryInterface',
+            'App\Data\Repository\StoreRepository'
+        );
+        $this->app->bind(
+            'App\Data\Repository\ContactRepositoryInterface',
+            'App\Data\Repository\ContactRepository'
+        );
+        $this->app->bind(
+            'App\Data\Repository\ProductRepositoryInterface',
+            'App\Data\Repository\ProductRepository'
+        );
+        $this->app->bind(
+            'App\Data\Repository\CustomerRepositoryInterface',
+            'App\Data\Repository\CustomerRepository'
+        );
+        $this->app->bind(
+            'App\Data\Repository\OrderRepositoryInterface',
+            'App\Data\Repository\OrderRepository'
         );
     }
 
