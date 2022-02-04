@@ -16,6 +16,7 @@ use App\Services\Supermarket\Http\Controllers\CategoryController;
 use App\Services\Supermarket\Http\Controllers\CompanyController;
 use App\Services\Supermarket\Http\Controllers\ContactController;
 use App\Services\Supermarket\Http\Controllers\CustomerController;
+use App\Services\Supermarket\Http\Controllers\OrderController;
 use App\Services\Supermarket\Http\Controllers\ProductController;
 use App\Services\Supermarket\Http\Controllers\StoreController;
 
@@ -67,6 +68,13 @@ Route::group(['prefix' => 'supermarket'], function() {
     Route::get('/customers/{id}',[CustomerController::class, 'get']);
     Route::put('/customers/{id}',[CustomerController::class, 'update']);
     Route::delete('/customers/{id}',[CustomerController::class, 'delete']);
+
+    //orders
+    Route::post('/orders',[OrderController::class, 'add']);
+    Route::get('/orders',[OrderController::class, 'all']);
+    Route::get('/orders/{id}',[OrderController::class, 'get']);
+    Route::put('/orders/{id}',[OrderController::class, 'update']);
+    Route::delete('/orders/{id}',[OrderController::class, 'delete']);
 
 
     /*Route::middleware('auth:api')->get('/user', function (Request $request) {
