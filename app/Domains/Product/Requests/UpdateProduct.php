@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Domains\Contact\Requests;
+namespace App\Domains\Product\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddContact extends FormRequest
+class UpdateProduct extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,10 +24,11 @@ class AddContact extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string','max:255'],
-            'email' => ['required', 'email','unique:contacts','max:255'],
-            'phone' => ['nullable', 'max:255'],
-            'position' => ['nullable', 'max:255'],
+            'id' => ['required', 'string','uuid'],
+            'name' => ['required', 'string','unique:products,name,'.$this->id,'max:255'],
+            'slug' => ['required', 'string','max:255'],
+            'price' => ['required', 'numeric'],
+            'description' => ['nullable', 'max:255'],
         ];
     }
 }
